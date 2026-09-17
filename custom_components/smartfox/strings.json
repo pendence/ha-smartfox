@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to SMARTFOX",
+        "description": "Enter the LAN Modbus TCP connection details. SMARTFOX Modbus TCP is not available over Wi-Fi.",
+        "data": {
+          "host": "Host / IP address",
+          "port": "Port",
+          "unit_id": "Unit ID"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to SMARTFOX via Modbus TCP."
+    },
+    "abort": {
+      "already_configured": "This SMARTFOX is already configured."
+    }
+  }
+}
