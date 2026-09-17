@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mit SMARTFOX verbinden",
+        "description": "LAN-Modbus-TCP-Verbindungsdaten eingeben. Laut Registerdokumentation ist die Modbus-TCP-Abfrage über WLAN nicht möglich.",
+        "data": {
+          "host": "Host / IP-Adresse",
+          "port": "Port",
+          "unit_id": "Unit-ID"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zum SMARTFOX über Modbus TCP nicht möglich."
+    },
+    "abort": {
+      "already_configured": "Dieser SMARTFOX ist bereits eingerichtet."
+    }
+  }
+}
