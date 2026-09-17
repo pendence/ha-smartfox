@@ -91,7 +91,13 @@ class SmartfoxCoordinator(DataUpdateCoordinator[dict[str, object]]):
             if any(v is None for v in words):
                 values[reg["key"]] = None
                 continue
-            value = decode(words, reg["data_type"])
+            # The SMARTFOX register table describes Battery 1 power as an unsigned
+            # 32-bit value, but the device uses two's-complement values so charging
+            # or discharging can be negative. Decode this register as signed.
+            data_type = reg["data_type"]
+            if reg["name"].lower() == "battery 1 power" and data_type == "uint32":
+                data_type = "int32"
+            value = decode(words, data_type)
             if reg["scale"] is not None and isinstance(value, (int, float)):
                 value *= reg["scale"]
             values[reg["key"]] = value
